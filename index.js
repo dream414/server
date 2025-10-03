@@ -15,7 +15,7 @@ app.use(express.static("public"));
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("✅ MongoDB Atlas Connected"))
-  .catch((err) => console.log("❌ MongoDB Error: " + err));
+  .catch((err) => console.log("❌ MongoDB Error show: " + err));
 
 // Schema
 const formSchema = new mongoose.Schema({
