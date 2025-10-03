@@ -1,4 +1,4 @@
-require("dotenv").config();  // 👈 sabse pehle ye add karo
+require("dotenv").config();  // 👈 سب سے اوپر ہونا ضروری ہے
 
 const express = require("express");
 const mongoose = require("mongoose");
@@ -14,8 +14,8 @@ app.use(express.static("public"));
 // 🔹 MongoDB Atlas Connection
 mongoose
   .connect(process.env.MONGO_URI)
-  .then(() => console.log("✅ MongoDB atlas connected"))
-  .catch((err) => console.log("❌ MongoDB Error showed : " + err));
+  .then(() => console.log("✅ MongoDB Atlas connected"))
+  .catch((err) => console.log("❌ MongoDB Error showed: " + err));
 
 // Schema
 const formSchema = new mongoose.Schema({
@@ -40,4 +40,6 @@ app.post("/api/form", async (req, res) => {
 
 // Start server
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+app.listen(PORT, () =>
+  console.log(`🚀 Server running on port ${PORT}`)
+);
