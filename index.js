@@ -14,8 +14,8 @@ app.use(express.static("public"));
 // 🔹 MongoDB Atlas Connection
 mongoose
   .connect(process.env.MONGO_URI)
-  .then(() => console.log("✅ MongoDB Atlas Connected"))
-  .catch((err) => console.log("❌ MongoDB Error show: " + err));
+  .then(() => console.log("✅ MongoDB atlas connected"))
+  .catch((err) => console.log("❌ MongoDB Error show : " + err));
 
 // Schema
 const formSchema = new mongoose.Schema({
@@ -32,7 +32,7 @@ app.post("/api/form", async (req, res) => {
   try {
     const newForm = new Form(req.body);
     await newForm.save();
-    res.json({ success: true, message: "✅ Form data saved!" });
+    res.json({ success: true, message: "✅ Form data saved !" });
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });
   }
