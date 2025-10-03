@@ -1,3 +1,5 @@
+require("dotenv").config();  // 👈 sabse pehle ye add karo
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -9,9 +11,9 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
 
-// 🔹 MongoDB Atlas Connection (direct string with username & password)
+// 🔹 MongoDB Atlas Connection
 mongoose
-  .connect("mongodb+srv://developerfrontend00_db_user:hYU9ZLKFVIYQFmZf@cluster0.uiesak7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+  .connect(process.env.MONGO_URI)
   .then(() => console.log("✅ MongoDB Atlas Connected"))
   .catch((err) => console.log("❌ MongoDB Error: " + err));
 
